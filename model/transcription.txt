@@ -1,0 +1,20 @@
+Operator: 911, what is the address of the emergency? 
+Operator: 911, what is the address of your emergency?
+Anderson: I’m in a car in a lake.
+Operator: Where?
+Anderson: The Fairway off of Batesville. 30188.
+Operator: Is that the address where the lake is?
+Anderson: Yes ma’am.
+Operator: Give me the address again to make sure I have it right.
+Anderson: The Fairway.
+Operator: The Fairway?
+Anderson: The Fairway as in golf course.
+Operator: The Fairway? Batesville and what … Batesville and where?
+Anderson: The Fairway and Batesville.
+Operator: Batesville and what?
+Anderson: The Fairway is a street, ma’am.
+Operator: Fairway? I don’t have that. Is that in Milton? What city is that in?
+Anderson: 30188 Ma’am, I’m losing air very quickly.
+Operator: Give me the address again. It is not working….
+Anderson: The Fairway
+Operator: Ma’am… I lost her. She’s in a lake.
