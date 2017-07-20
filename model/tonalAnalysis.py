@@ -1,5 +1,6 @@
 import json
 from watson_developer_cloud import ToneAnalyzerV3
+import transcriptManipulation
 
 toneAnalyzer = ToneAnalyzerV3(
   version='2016-05-19',
@@ -10,7 +11,8 @@ toneAnalyzer = ToneAnalyzerV3(
 with open('transcription.txt', 'r') as myfile:
     data = myfile.read().replace('\u2019', '').replace('\u2026', '')
 
-toneJson = json.dumps(toneAnalyzer.tone(text=data), indent=2)
+caller_text = transcriptManipulation.stripCallerText(data)
+toneJson = json.dumps(toneAnalyzer.tone(text=caller_text), indent=2)
 
 arrayData = json.loads(toneJson)
 print(toneJson)
