@@ -1,3 +1,5 @@
+script = "transcription.txt"
+
 def stripCallerText(transcription):
 	transcription = transcription.replace('\u2019', '').replace('\u2026', '')
 	transcript_lines = transcription.split('\n')

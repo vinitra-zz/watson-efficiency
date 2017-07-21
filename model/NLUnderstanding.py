@@ -9,7 +9,7 @@ natural_language_understanding = NaturalLanguageUnderstandingV1(
   password="3dhfEiyveG8P",
   version="2017-02-27")
 
-with open('transcription.txt', 'r') as myfile:
+with open(transcriptManipulation.script, 'r') as myfile:
     data = myfile.read()
 
 caller_text = transcriptManipulation.stripCallerText(data)
@@ -38,7 +38,7 @@ print("NLU Analysis Output")
 print("--------------------\n")
 print(NLUJson)
 
-with open("NLUJson.txt", 'w') as json_file:
+with open("output/NLUJson.txt", 'w') as json_file:
     json.dump(NLUJson, json_file)
 
 print("NLUJson written successfully!")

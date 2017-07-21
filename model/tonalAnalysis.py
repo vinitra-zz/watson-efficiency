@@ -13,13 +13,13 @@ toneAnalyzer = ToneAnalyzerV3(
   password="kNNKuFCtV1gW"
 )
 
-with open('transcription.txt', 'r') as myfile:
+with open(transcriptManipulation.script, 'r') as myfile:
     data = myfile.read()
 
 caller_text = transcriptManipulation.stripCallerText(data)
 toneJson = json.dumps(toneAnalyzer.tone(text=caller_text), indent=2)
 
-with open("EmotionJson.txt", 'w') as json_file:
+with open("output/EmotionJson.txt", 'w') as json_file:
     json.dump(toneJson, json_file)
 
 
@@ -57,10 +57,10 @@ plt.legend(['Emotion Intensity', 'Anger', 'Fear', 'Sadness'], loc='upper left')
 plt.xlabel('Time')
 plt.ylabel('Emotion Percentages')
 plt.title('911 Caller Emotional Range')
-plt.savefig("emotionalrange.png")
+plt.savefig("output/EmotionRange.png")
 plt.show()
 
-with open("EmotionOutput.txt", "w") as text_file:
+with open("output/EmotionOutput.txt", "w") as text_file:
     text_file.write(emotional_output)
 
 print("EmotionJson written successfully!")
