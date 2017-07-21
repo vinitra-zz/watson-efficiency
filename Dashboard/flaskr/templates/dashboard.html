@@ -1,13 +1,14 @@
 {% extends "layout.html" %}
 
+{% block title %}Bue Responder 911 Operator{% endblock %}
+
 {% block style %}
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+ 
       #map {
         height: 100%;
       }
-      /* Optional: Makes the sample page fill the window. */
+      
       html, body {
         height: 100%;
         margin: 0;
@@ -15,10 +16,6 @@
       }
     </style>
   {% endblock %}
-
-  
- 
-
 
 
 {% block content %}
@@ -28,7 +25,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
-        <img alt="Watson 911 - Dashboard" src="...">
+        <img alt="Blue Responder 911 - Dashboard" src="...">
       </a>
     </div>
   </div>
@@ -89,33 +86,33 @@
     <div class="col-sm-6 col-md-2 col-lg-4" >
     
 <div class="panel panel-default">
-  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-heading">Caller Information</div>
   <div class="panel-body">
 
 
     <div class="input-group">
   <span class="input-group-addon" id="basic-addon3"> Full Name</span>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <input type="text" value="Shanell Anderson" class="form-control" id="basic-url" aria-describedby="basic-addon3">
 </div>
 
     <div class="input-group">
   <span class="input-group-addon" id="basic-addon3"> Phone Number	</span>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <input type="text" value="1(345)678-9101" class="form-control" values= id="basic-url" aria-describedby="basic-addon3">
 </div>
 
   <div class="input-group">
   <span class="input-group-addon" id="basic-addon3"> Priority</span>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <input type="text" class="form-control" value="1" id="basic-url" aria-describedby="basic-addon3">
 </div>
 
 <div class="input-group">
   <span class="input-group-addon" id="basic-addon3"> Location</span>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <input type="text" class="form-control" value="-73.8029257,41.2097037" id="basic-url" aria-describedby="basic-addon3">
 </div>
 
 <div class="input-group">
   <span class="input-group-addon" id="basic-addon3"> Nature of Emergency</span>
-  <textarea type="textarea" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <textarea type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">Car Accident, Car Driven Into Lake
   </textarea> 
 </div>
 
@@ -164,7 +161,7 @@
   <div class="panel-body">
     <div class="input-group">
   <span class="input-group-addon" id="basic-addon3"> Emergency Type / Details</span>
-  <textarea type="textarea" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <textarea type="textarea" class="form-control" id="basic-url" aria-describedby="basic-addon3">Lone Occupant of the Vehicle, No Previous Medical Conditions, Female
   </textarea> 
 </div>
   </div>
@@ -229,10 +226,20 @@
 <script>
       var map;
       function initMap() {
+
+      	var myLatLng = {lat: 41.2097037, lng: -73.8029257};
+
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 41.2097037, lng: -73.8029257},
+          center: myLatLng,
           zoom: 15
         });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Callers Location'
+        });
+
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN51DsGV5lxk_SQ_5ZoE1s2LjQfsP7yqE&callback=initMap"
