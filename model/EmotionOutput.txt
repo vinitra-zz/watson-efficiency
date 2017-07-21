@@ -1,0 +1,5 @@
+Emotional Range: {20.687, 52.5958}
+Anger: 19.2944
+Fear: 31.3023
+Sadness: 45.2878
+

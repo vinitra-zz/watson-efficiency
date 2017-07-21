@@ -4,6 +4,8 @@ import transcriptManipulation
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import spline
+import warnings
+warnings.filterwarnings("ignore")
 
 toneAnalyzer = ToneAnalyzerV3(
   version='2016-05-19',
@@ -12,10 +14,14 @@ toneAnalyzer = ToneAnalyzerV3(
 )
 
 with open('transcription.txt', 'r') as myfile:
-    data = myfile.read().replace('\u2019', '').replace('\u2026', '')
+    data = myfile.read()
 
 caller_text = transcriptManipulation.stripCallerText(data)
 toneJson = json.dumps(toneAnalyzer.tone(text=caller_text), indent=2)
+
+with open("EmotionJson.txt", 'w') as json_file:
+    json.dump(toneJson, json_file)
+
 
 arrayData = json.loads(toneJson)
 
@@ -23,14 +29,28 @@ emotional_range_scores = np.array([sentence.get('tone_categories')[2].get('tones
 anger_scores = np.array([sentence.get('tone_categories')[0].get('tones')[0].get('score')  for sentence in arrayData.get('sentences_tone') if sentence.get('tone_categories') != []]) * 100
 fear_scores = np.array([sentence.get('tone_categories')[0].get('tones')[2].get('score')  for sentence in arrayData.get('sentences_tone') if sentence.get('tone_categories') != []]) * 100
 sad_scores = np.array([sentence.get('tone_categories')[0].get('tones')[4].get('score')  for sentence in arrayData.get('sentences_tone') if sentence.get('tone_categories') != []]) * 100
+
+emotional_output = "Emotional Range: {" + str(np.percentile(emotional_range_scores, 25)) + ", " + str(np.percentile(emotional_range_scores, 75)) + "}\n" \
+					+ "Anger: " + str(max(anger_scores)) + "\n" \
+			  		+ "Fear: " + str(max(fear_scores)) + "\n" \
+			    	+ "Sadness: " + str(max(sad_scores))+ "\n\n"
+
+print("-------------------------")
+print("Emotional Analysis Output")
+print("-------------------------\n")
+print(emotional_output)
+
+
+print("Displaying Sentiment Analysis Arcs...\n")
+
 s = np.arange(len(emotional_range_scores))
 
 plt.gca().set_color_cycle(['purple', 'red', 'orange', 'blue'])
 
-plt.plot(s, emotional_range_scores)
-plt.plot(s, anger_scores)
-plt.plot(s, fear_scores)
-plt.plot(s, sad_scores)
+plt.plot(s, emotional_range_scores, linewidth=3)
+plt.plot(s, anger_scores, linestyle = '--')
+plt.plot(s, fear_scores, linestyle = '--')
+plt.plot(s, sad_scores, linestyle = '--')
 
 plt.legend(['Emotion Intensity', 'Anger', 'Fear', 'Sadness'], loc='upper left')
 
@@ -39,3 +59,11 @@ plt.ylabel('Emotion Percentages')
 plt.title('911 Caller Emotional Range')
 plt.savefig("emotionalrange.png")
 plt.show()
+
+with open("EmotionOutput.txt", "w") as text_file:
+    text_file.write(emotional_output)
+
+print("EmotionJson written successfully!")
+print("EmotionOutput.txt written successfully!")
+
+
