@@ -14,7 +14,24 @@ print(json.dumps(speech_to_text.get_model('en-US_BroadbandModel'), indent=2))
 
 with open(join(dirname(__file__), '/Users/antara.palit@ibm.com/Downloads/911_Call.wav'),
           'rb') as audio_file:
-    print(json.dumps(speech_to_text.recognize(
-        audio_file, content_type='audio/wav', timestamps=True,
-        word_confidence=True),
+    s = (json.dumps(speech_to_text.recognize(
+        audio_file, content_type='audio/wav', 
+
+        #timestamps=True,
+        #word_confidence=True
+        ),
         indent=2))
+s = s.split()
+for word in s:
+	if word == '"transcript"':
+   		print ("test")
+   		beg = s.index(word)
+   		end = s.index('"', beg + 16)
+   		final = (s.substring(beg + 15, end))
+
+f = open("text_transcript.txt", "w")
+f.write(final)
+f.close()
+
+   		
+
