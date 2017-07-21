@@ -12,21 +12,18 @@ natural_language_understanding = NaturalLanguageUnderstandingV1(
 with open(transcriptManipulation.script, 'r') as myfile:
     data = myfile.read()
 
-caller_text = transcriptManipulation.stripCallerText(data)
+strippedText = transcriptManipulation.stripPeople(data)
 
 response = natural_language_understanding.analyze(
-  text=caller_text,
+  text=strippedText,
   features=[
-    Features.Entities(
-      emotion=True,
-      sentiment=True,
-      limit=5
-    ),
     Features.Keywords(
-      emotion=True,
-      sentiment=True,
-      limit=5
+      limit=9
+    ),
+    Features.Entities(
+      limit=2
     )
+    
   ]
 )
 
@@ -39,7 +36,7 @@ print("--------------------\n")
 print(NLUJson)
 
 with open("output/NLUJson.txt", 'w') as json_file:
-    json.dump(NLUJson, json_file)
+    json.dump(response, json_file, indent=2)
 
 print("NLUJson written successfully!")
 

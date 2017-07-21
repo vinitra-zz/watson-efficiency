@@ -17,10 +17,11 @@ with open(transcriptManipulation.script, 'r') as myfile:
     data = myfile.read()
 
 caller_text = transcriptManipulation.stripCallerText(data)
-toneJson = json.dumps(toneAnalyzer.tone(text=caller_text), indent=2)
+response = toneAnalyzer.tone(text=caller_text)
+toneJson = json.dumps(response, indent=2)
 
 with open("output/EmotionJson.txt", 'w') as json_file:
-    json.dump(toneJson, json_file)
+    json.dump(response, json_file, indent=2)
 
 
 arrayData = json.loads(toneJson)
