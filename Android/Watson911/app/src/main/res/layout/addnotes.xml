@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textStyle="bold"
+        android:text="Tap to return to call ● 00:20"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:background="#699c74"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Emergency"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_height="wrap_content" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp">
+
+        <EditText android:id="@+id/note_input"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:inputType="textMultiLine"
+            android:lines="10"
+            android:minLines="5"
+            android:hint="Additional Information?"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit_notes"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        />
+
+</LinearLayout>

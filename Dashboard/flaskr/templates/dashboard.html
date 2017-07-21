@@ -1,0 +1,243 @@
+{% extends "layout.html" %}
+
+{% block style %}
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  {% endblock %}
+
+  
+ 
+
+
+
+{% block content %}
+
+
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Watson 911 - Dashboard" src="...">
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+    <div class="col-sm-3 col-md-6 col-lg-4" >
+
+     <div class="panel panel-default">
+ <div class="panel-heading">Transcript</div>
+  <div class="panel-body">
+    
+    <ul class="list-group">
+  <li class="list-group-item list-group-item-success"><b>Operator:</b> 911, what is the address of the emergency? </li>
+  <li class="list-group-item list-group-item-warning"><b>Anderson:</b> I’m in a car in a lake.</li>
+  <li class="list-group-item list-group-item-success"><b>Operator:</b> Where? </li>
+  <li class="list-group-item list-group-item-warning"><b>Anderson:</b> The Fairway off of Batesville. 30188.</li>
+  <li class="list-group-item list-group-item-success"><b>Operator:</b> Is that the address where the lake is? </li>
+  <li class="list-group-item list-group-item-warning"><b>Anderson:</b> TYes ma’am.</li>
+  <li class="list-group-item list-group-item-success"><b>Operator:</b> Give me the address again to make sure I have it right. </li>
+  <li class="list-group-item list-group-item-warning"><b>Anderson:</b> The Fairway..</li>
+ 
+  
+</ul>
+  </div>
+  </div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Suggested Questions</div>
+  <div class="panel-body">
+  <div class="alert alert-success" role="alert">
+  <a href="#" class="alert-link">Any Other Landmarks Near By? </a><span class="badge"> 1</span>
+</div>
+<div class="alert alert-info" role="alert">
+  <a href="#" class="alert-link">Are there Any Other Occupants In the Vehicle? </a><span class="badge"> 2</span>
+</div>
+<div class="alert alert-warning" role="alert">
+  <a href="#" class="alert-link">Are You In Cherokee County? </a><span class="badge"> 4</span>
+</div>
+
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>  Call Back</button>
+  <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>  End Call</button>
+  <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>  Place on Hold</button>
+</div>
+  </div>
+</div>
+
+
+
+    </div>
+    <div class="col-sm-6 col-md-2 col-lg-4" >
+    
+<div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+
+
+    <div class="input-group">
+  <span class="input-group-addon" id="basic-addon3"> Full Name</span>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+</div>
+
+    <div class="input-group">
+  <span class="input-group-addon" id="basic-addon3"> Phone Number	</span>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+</div>
+
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon3"> Priority</span>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+</div>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon3"> Location</span>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+</div>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon3"> Nature of Emergency</span>
+  <textarea type="textarea" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  </textarea> 
+</div>
+
+
+
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Dispatch Center</div>
+  <div class="panel-body">
+  <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src={{ url_for('static', filename = 'images/police.png') }} width="80" height="100" alt="Police Logo">
+      <div class="caption">
+        <h3>Police</h3>
+        <p><a href="#" class="btn btn-primary" role="button">Dispatch</a> <a href="#" class="btn btn-default" role="button">Send Notes</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src={{ url_for('static', filename = 'images/fire.png') }} width="100" height="100" alt="Fire Logo">
+      <div class="caption">
+        <h3>Fire</h3>
+        <p><a href="#" class="btn btn-primary" role="button">Dispatch</a> <a href="#" class="btn btn-default" role="button">Send Notes</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src={{ url_for('static', filename = 'images/ambulance.png') }} width="100" height="100" alt="Ambulance Logo">
+      <div class="caption">
+        <h3>Ambulance</h3>
+        <p><a href="#" class="btn btn-primary" role="button">Dispatch</a> <a href="#" class="btn btn-default" role="button">Send Notes</a></p>
+      </div>
+    </div>
+  </div>	
+</div>
+  </div>	
+  </div>	
+
+<div class="panel panel-default">
+  <div class="panel-heading">Emergency Notes</div>
+  <div class="panel-body">
+    <div class="input-group">
+  <span class="input-group-addon" id="basic-addon3"> Emergency Type / Details</span>
+  <textarea type="textarea" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  </textarea> 
+</div>
+  </div>
+
+
+
+</div>
+    </div>
+     <div class="col-sm-5 col-md-3 col-lg-4">
+      <div class="panel panel-default">
+  <div class="panel-heading">Map</div>
+  <div class="panel-body" i>
+    
+<div class="embed-responsive embed-responsive-16by9" id="map">
+  <iframe class="embed-responsive-item"></iframe>
+</div>
+
+    
+
+
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading"> Caller Tonal Urgency </div>
+  <div class="panel-body">
+    
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: 35%">
+    <span class="sr-only">35% Complete (success)</span>
+    Low
+  </div>
+  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
+    <span class="sr-only">20% Complete (warning)</span>
+    Medium	
+  </div>
+  <div class="progress-bar progress-bar-danger" style="width: 10%">
+    <span class="sr-only">10% Complete (danger)</span>
+       High
+  </div>
+</div>
+  </div>
+</div>	
+<div class="panel panel-default">
+  <div class="panel-heading">911 Call Queue</div>
+  <div class="panel-body">
+    <div class="list-group">
+  <a href="#" class="list-group-item active">
+    Call 808731 (Current Call)
+  </a>
+  <a href="#" class="list-group-item">Call 865349 (On Hold) </a>
+  <a href="#" class="list-group-item">Call 865349 (In Progress)</a>
+  <a href="#" class="list-group-item">Call 847859 (In Progress)</a>
+</div>
+  </div>
+</div>
+
+    </div>
+</div>	
+
+<script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 41.2097037, lng: -73.8029257},
+          zoom: 15
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN51DsGV5lxk_SQ_5ZoE1s2LjQfsP7yqE&callback=initMap"
+    async defer></script>
+
+
+ 
+{% endblock %}

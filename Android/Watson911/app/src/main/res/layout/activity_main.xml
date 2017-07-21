@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true"
+
+    tools:context="com.example.danielphillips.watson911.MainActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Watson 911"
+        android:textSize="40dp"
+        android:paddingTop="20dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="90dp"
+        android:paddingTop="70dp">
+
+        <Button
+            android:id="@+id/emergency"
+            android:layout_width="251dp"
+            android:layout_height="54dp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorEmergency"
+            android:text="Emergency"
+
+            tools:layout_editor_absoluteX="67dp"
+            tools:layout_editor_absoluteY="58dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="50dp"
+        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/fire"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Fire"
+        android:textColor="#FFFFFF"
+        android:layout_margin="5dp"
+        android:background="@color/colorEmergency"
+        android:layout_gravity="center_horizontal"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+    <Button
+        android:id="@+id/ambulance"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Ambulance"
+        android:textColor="#FFFFFF"
+        android:background="@color/colorEmergency"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <Button
+        android:id="@+id/police"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Police"
+        android:textColor="#FFFFFF"
+        android:background="@color/colorEmergency"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        tools:layout_editor_absoluteY="286dp"
+        tools:layout_editor_absoluteX="148dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:id="@+id/UpdateInfo"
+        android:text="Update Owner Information"/>
+
+</LinearLayout>
