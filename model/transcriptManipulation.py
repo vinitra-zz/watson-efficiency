@@ -18,13 +18,13 @@ def stripStopwordsPunctuation(transcription):
 		processed_lines.append(" ".join(filtered_words))
 	return "\n".join(processed_lines)
 
-def stripPeople(transcription):
-	transcription = transcription.replace('\u2019', '').replace('\u2026', '')
+def stripPeoplePunc(transcription):
+	transcription = transcription.replace('\u2019', '').replace('\u2026', '').replace('.', '').replace(':', '').replace(',', '')
 	lines = transcription.split('\n')
 	processed_lines = []
 	for sentence in lines:
 		tokens = sentence.split()
-		filtered_words = [w for w in tokens if not w in ['Operator:', 'Anderson:', 'Im']]
+		filtered_words = [w for w in tokens if not w in ['Operator', 'Anderson', 'Im', 'maam', 'Maam', 'street']]
 		processed_lines.append(" ".join(filtered_words))
 	return "\n".join(processed_lines)
 

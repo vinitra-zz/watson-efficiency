@@ -12,31 +12,52 @@ natural_language_understanding = NaturalLanguageUnderstandingV1(
 with open(transcriptManipulation.script, 'r') as myfile:
     data = myfile.read()
 
-strippedText = transcriptManipulation.stripPeople(data)
+strippedText = transcriptManipulation.stripPeoplePunc(data)
 
 response = natural_language_understanding.analyze(
   text=strippedText,
   features=[
     Features.Keywords(
-      limit=9
+      limit=10
     ),
     Features.Entities(
-      limit=2
+      limit=10
     )
     
   ]
 )
 
 NLUJson = json.dumps(response, indent=2)
+arrayData = json.loads(NLUJson)
+keywords = [entry.get('text') for entry in arrayData.get('keywords')]
 
+print("-------------------------------")
+print("NLU Analysis Output - Keywords")
+print("-------------------------------")
+[print(word) for word in keywords]
+print()
 
-print("--------------------")
-print("NLU Analysis Output")
-print("--------------------\n")
-print(NLUJson)
+entityDict = dict([(entry.get('text'), entry.get('type')) for entry in arrayData.get('entities') if len(entry.get('text').split()) < 2])
 
-with open("output/NLUJson.txt", 'w') as json_file:
-    json.dump(response, json_file, indent=2)
+print("-------------------------------")
+print("NLU Analysis Output - Entities")
+print("-------------------------------")
+[print(entry + ", " + entryType) for entry, entryType in entityDict.items()]
+print()
+
+with open("output/NLUJson.txt", 'w') as jsonFile:
+    json.dump(response, jsonFile, indent=2)
+
+with open("output/NLUKeywords.txt", 'w') as wordFile:
+    for word in keywords:
+      wordFile.write(word + "\n")
+
+with open("output/NLUEntities.txt", 'w') as entityFile:
+    for entry, entryType in entityDict.items():
+      entityFile.write(entry + ", " + entryType + "\n")
 
 print("NLUJson written successfully!")
+print("NLUKeywords written successfully!")
+print("NLUEntities written successfully!")
+
 

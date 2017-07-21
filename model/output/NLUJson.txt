@@ -3,46 +3,50 @@
   "keywords": [
     {
       "text": "Fairway",
-      "relevance": 0.989296
-    },
-    {
-      "text": "maam",
-      "relevance": 0.652246
-    },
-    {
-      "text": "address",
-      "relevance": 0.601644
+      "relevance": 0.955372
     },
     {
       "text": "Batesville",
-      "relevance": 0.576363
+      "relevance": 0.676713
+    },
+    {
+      "text": "address",
+      "relevance": 0.607993
     },
     {
       "text": "golf course",
-      "relevance": 0.480787
+      "relevance": 0.469222
     },
     {
       "text": "lake",
-      "relevance": 0.466693
+      "relevance": 0.468061
     },
     {
       "text": "emergency",
-      "relevance": 0.403208
+      "relevance": 0.403819
     },
     {
       "text": "car",
-      "relevance": 0.353167
+      "relevance": 0.353096
     },
     {
       "text": "Milton",
-      "relevance": 0.350677
+      "relevance": 0.349214
+    },
+    {
+      "text": "city",
+      "relevance": 0.344607
+    },
+    {
+      "text": "air",
+      "relevance": 0.344095
     }
   ],
   "entities": [
     {
       "type": "Location",
-      "text": "Batesville.",
-      "relevance": 0.812222,
+      "text": "Batesville",
+      "relevance": 0.931398,
       "disambiguation": {
         "subtype": [
           "City"
@@ -51,10 +55,21 @@
       "count": 5
     },
     {
-      "type": "Person",
-      "text": "30188 Maam",
-      "relevance": 0.808909,
-      "count": 4
+      "type": "Location",
+      "text": "Milton",
+      "relevance": 0.172084,
+      "disambiguation": {
+        "subtype": [
+          "City"
+        ]
+      },
+      "count": 1
+    },
+    {
+      "type": "Quantity",
+      "text": "Milton",
+      "relevance": 0.172084,
+      "count": 1
     }
   ]
 }
